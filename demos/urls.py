@@ -9,8 +9,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^demos/', include('demos.foo.urls')),
+    # tinymce
+    (r'^tinymce/', include('tinymce.urls')),
 
     # zinnia urls
     url(r'^blog/', include('zinnia.urls')),
@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     # url(r'^xmlrpc/$', include('django_xmlrpc.views.handle_xmlrpc')),
 
     # reploc urls
-    (r'^locator/', include('reploc.urls')),
+    (r'^loc/', include('reploc.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -50,12 +50,23 @@ urlpatterns += patterns('django.contrib.sitemaps.views',
 
 import zinnia
 
+_cur_path = os.path.abspath(os.path.dirname(__file__))
 _zinnia_path = os.path.abspath(os.path.dirname(zinnia.__file__))
 
 urlpatterns += patterns('django.views.static',
+                        url(r'^tiny_mce/(?P<path>.*)$', 'serve',
+                            {
+                                'document_root': os.path.join(_cur_path, 'media', 'tiny_mce')
+                                }
+                            ),
                         url(r'^zinnia/(?P<path>.*)$', 'serve',
                             {
                                 'document_root': os.path.join(_zinnia_path, 'media', 'zinnia')
+                                }
+                            ),
+                        url(r'^reploc/(?P<path>.*)$', 'serve',
+                            {
+                                'document_root': os.path.join(_cur_path, 'media', 'reploc')
                                 }
                             ),
                         )

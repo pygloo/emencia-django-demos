@@ -44,7 +44,7 @@ USE_I18N = True
 USE_L10N = True
 
 import os
-CUR_DIR = os.path.abspath(__file__)
+CUR_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/"
@@ -95,9 +95,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 ROOT_URLCONF = 'demos.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(CUR_DIR, 'templates'),
 )
 
 INSTALLED_APPS = (
@@ -116,6 +114,7 @@ INSTALLED_APPS = (
     'mptt',
     'tagging',
     'django.contrib.sitemaps',
+    'tinymce',
     # 'django_xmlrpc',
     # zinnia app
     'zinnia',
@@ -123,9 +122,15 @@ INSTALLED_APPS = (
     'reploc',
 )
 
-
-
-
+TINYMCE_JS_URL = '/tiny_mce/js/tiny_mce/tiny_mce_src.js'
+TINYMCE_JS_ROOT = os.path.join(MEDIA_ROOT, 'tiny_mce', 'js', 'tiny_mce')
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+}
+TINYMCE_SPELLCHECKER = True
 
 # zinnia additionnal settings
 AKISMET_SECRET_API_KEY = 'your key'
