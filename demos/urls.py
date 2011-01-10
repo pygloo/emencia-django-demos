@@ -9,6 +9,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+
     # tinymce
     (r'^tinymce/', include('tinymce.urls')),
 
@@ -19,9 +20,6 @@ urlpatterns = patterns('',
 
     # reploc urls
     (r'^loc/', include('reploc.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
@@ -62,6 +60,11 @@ urlpatterns += patterns('django.views.static',
                         url(r'^zinnia/(?P<path>.*)$', 'serve',
                             {
                                 'document_root': os.path.join(_zinnia_path, 'media', 'zinnia')
+                                }
+                            ),
+                        url(r'^uploads/(?P<path>.*)$', 'serve',
+                            {
+                                'document_root': os.path.join(_cur_path, 'media', 'uploads')
                                 }
                             ),
                         url(r'^reploc/(?P<path>.*)$', 'serve',

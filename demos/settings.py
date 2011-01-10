@@ -67,7 +67,7 @@ SECRET_KEY = 'jo-1rzm(%sf)3#n+fb7h955yu$3(pt63abhi12_t7e^^5q8dyw'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
     'django.template.loaders.app_directories.load_template_source',
-    'django.template.loaders.eggs.load_template_source',
+    # 'django.template.loaders.eggs.load_template_source',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -85,6 +85,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.request',
     'django.core.context_processors.media',
+    'django.core.context_processors.debug',
     # zinnia
     'zinnia.context_processors.media',
     'zinnia.context_processors.version', # Optional
@@ -148,4 +149,5 @@ ZINNIA_AKISMET_COMMENT = True
 # XMLRPC_METHODS = ZINNIA_XMLRPC_METHODS
 
 # DEMO APP - reploc additionnal requirements
+REPLOC_USE_JS = False
 GOOGLE_MAPS_KEY = ''
