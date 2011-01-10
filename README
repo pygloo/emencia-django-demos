@@ -1,0 +1,24 @@
+EMENCIA DJANGO DEMOS
+====================
+
+Start the app
+-------------
+
+sync it::
+
+    django-admin.py syncdb --settings demos.settings
+
+
+dump data::
+
+    django-admin.py dumpdata --settings demos.settings zinnia > dump.json
+
+
+load data::
+
+    django-admin.py loaddata --settings demos.settings dump.json
+
+
+run it::
+
+    django-admin.py runserver --settings demos.settings 7000
