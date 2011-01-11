@@ -62,7 +62,7 @@ urlpatterns += patterns('django.views.static',
                                 'document_root': os.path.join(_zinnia_path, 'media', 'zinnia')
                                 }
                             ),
-                        url(r'^uploads/(?P<path>.*)$', 'serve',
+                        url(r'^blog/uploads/(?P<path>.*)$', 'serve',
                             {
                                 'document_root': os.path.join(_cur_path, 'media', 'uploads')
                                 }
