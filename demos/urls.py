@@ -38,6 +38,9 @@ urlpatterns = patterns('',
     # gmaps urls
     (r'^uniform/', include('demos.uniform.urls')),
 
+    # gmaps urls
+    (r'^formbuilder/', include('forms_builder.forms.urls')),
+
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
 

@@ -134,6 +134,8 @@ INSTALLED_APPS = (
     # demo app - uni_form
     'uni_form',
     'demos.uniform',
+    # demo app - forms_builder.forms
+    'forms_builder.forms',
 )
 
 TINYMCE_JS_URL = '/tiny_mce/js/tiny_mce/tiny_mce_src.js'
