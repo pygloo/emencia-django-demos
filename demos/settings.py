@@ -78,6 +78,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    # axes
+    'axes.middleware.FailedLoginMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -121,6 +123,17 @@ INSTALLED_APPS = (
     'zinnia',
     # demo app - reploc
     'reploc',
+    # demo app - gmapsfield
+    'gmapsfield',
+    'demos.gmaps',
+    # demo app - axes
+    'axes',
+    'demos.axes',
+    # demo app - photologue
+    'photologue',
+    # demo app - uni_form
+    'uni_form',
+    'demos.uniform',
 )
 
 TINYMCE_JS_URL = '/tiny_mce/js/tiny_mce/tiny_mce_src.js'

@@ -22,3 +22,4 @@ load data::
 run it::
 
     django-admin.py runserver --settings demos.settings 7000
+
